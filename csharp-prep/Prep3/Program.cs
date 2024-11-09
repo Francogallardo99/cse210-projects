@@ -3,18 +3,30 @@ using System;
 class Program
 {
     static void Main(string[] args)
-    {
-        while ( number == magicNumber)
+    {   Random randomGenerator = new Random ();
+        int magicNumber = randomGenerator.Next (1, 101);
+        Console.WriteLine("You need to guess the number I'm thinking of.");
+        int guess = 0;
+
+        while ( guess != magicNumber)
         {
-            Console.Write("What is the magic number? ");
-            string magic = Console.ReadLine();
-            int magicNumber = int.Parse(magic);
+            
             Console.Write("Give me a number: ");        
             string numberTry = Console.ReadLine();
-            int number = int.Parse(numberTry);
-
-        
+            guess = int.Parse(numberTry);        
+            if (guess < magicNumber)
+            {
+                Console.WriteLine("Higher");
+            }
+            else if (guess > magicNumber)
+            {
+                Console.WriteLine("Lower");
+            }
+            else
+            {
+                Console.WriteLine("Congratulations! You have guessed the magic number");
             
+            }
         }
     }
 }
